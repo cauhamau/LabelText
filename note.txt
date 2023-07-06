@@ -1,0 +1,10 @@
+pip install layoutparser
+pip install "layoutparser[layoutmodels]"
+pip install "layoutparser[ocr]"
+pip install --ignore-installed Pillow==9.0.0
+pip uninstall google-api-core
+pip install google-api-core==1.34.0
+pip install google-cloud-vision
+
+
+sudo apt install tesseract-ocr

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload PDF</title>
+    <style type="text/css">
+		body {
+			background-color: #87CEFA;
+		}
+	</style>
+</head>
+<body>
+	<h1>Upload PDF Files</h1>
+	<form action="/label" method="POST" enctype="multipart/form-data">
+		<label for="pdf_files">Choose PDF files to upload:</label><br>
+		<input type="file" id="img_files" name="img_files" accept=".jpg, .png, .jpeg" multiple><br>
+		<button type="submit">Upload</button>
+	</form>
+</body>
+</html>

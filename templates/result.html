@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title style="text-align:center;">Result</title>
+	<style type="text/css">
+		body {
+			background-color: #87CEFA;
+		}
+	</style>
+</head>
+<body>
+
+    <div style="display: flex; margin-top: 50px;">
+		<div style="flex: 1;">
+		  <!-- <img id="image" src={{image0}} width="80%" height="80%"> -->
+		  <img id="image" src={{image0}}>
+		  <div>
+			<button id="prevImage">Previous Image</button>
+			<button id="nextImage">Next Image</button>
+		  </div>
+		</div>
+		<div style="flex: 1; margin-left: 20px;">
+		  <p style="white-space: pre-wrap;" id="text">{{res0|safe}}</p>
+		</div>
+	</div>
+	<script>
+		var image_dir = {{image_path | tojson}} ;
+		var listItem = document.createElement('li');
+		var description = {{res | tojson}};
+		var index = 0;
+		
+    	var nextImage = document.getElementById('nextImage');
+		var prevImage = document.getElementById('prevImage');
+
+
+		nextImage.addEventListener('click', function() {
+			index = (index + 1 ) % image_dir.length;
+			listItem.textContent = image_dir[index];
+			document.getElementById("image").src = listItem.textContent;
+			listItem.textContent = description[index];
+			document.getElementById("text").innerHTML = listItem.textContent
+		});
+
+		prevImage.addEventListener('click', function() {
+			index = (index - 1 + image_dir.length) % image_dir.length;
+			listItem.textContent = image_dir[index];
+			document.getElementById("image").src = listItem.textContent
+			listItem.textContent = description[index];
+			document.getElementById("text").innerHTML = listItem.textContent
+		});
+	</script>
+</body>
+</html>
